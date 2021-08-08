@@ -25,6 +25,9 @@ import {
 	ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import StorybookUI from './storybook';
+import Config from 'react-native-config';
+
 const Section: React.FC<{
 	title: string;
 }> = ({ children, title }) => {
@@ -111,4 +114,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default App;
+export default Config.LOAD_STORYBOOK === 'true' ? StorybookUI : App;
