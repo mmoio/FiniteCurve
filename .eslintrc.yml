@@ -1,0 +1,59 @@
+settings:
+  react:
+    version: "detect"
+env:
+  es2021: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+  - 'plugin:@typescript-eslint/recommended'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - react
+  - react-native
+  - '@typescript-eslint'
+rules:
+  react/prop-types: 0
+  no-tabs:
+    - off
+  semi-spacing:
+    - error
+    - before: false
+      after: false
+  semi:
+    - warn
+    - always
+  jsx-quotes:
+  - warn
+  - prefer-single
+  quotes:
+    - warn
+    - single
+  func-call-spacing:
+    - warn
+    - never
+  space-before-function-paren:
+    - warn
+    - never
+  no-console:
+    - error
+  indent:
+    - error
+    - tab
+    - SwitchCase: 1
+  no-multi-spaces:
+    - error
+  comma-dangle:
+    - warn
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: never
+
