@@ -6,8 +6,13 @@ export declare type Character = {
 	image: string;
 	species: string
 	status: CharacterStatus;
+	id: string;
 }
 
 export declare type CharacterProps = {
 	character: Character;
+}
+
+export declare type CharacterListProps = {
+	characters: Character[];
 }

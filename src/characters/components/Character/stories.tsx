@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Character from './Character';
-import { CharacterProps } from '../types';
+import Character from './index';
+import { CharacterProps } from '../../types';
 import {storiesOf} from '@storybook/react-native';
 
 const props: CharacterProps = {

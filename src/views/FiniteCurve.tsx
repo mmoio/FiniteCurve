@@ -1,18 +1,21 @@
 import { useQuery, gql } from '@apollo/client';
 import React from 'react';
 import { Text } from 'react-native';
-import CharacterItem from '../characters/components/Character';
+import CharacterList from '../characters/components/CharacterList';
 import {Character } from '../characters/types';
 
 const CHAPTERS_QUERY = gql`
-	query {
-		character(id: ${Math.floor(Math.random() * 100)}) {
+query {
+  characters(page: 1) {
+    results {
 			name,
-			image,
-			status,
 			species,
+			status,
+			image,
+			id
 		}
-	}
+  }
+}
 `;
 
 const FiniteCurveScreen: React.FC = () => {
@@ -20,7 +23,7 @@ const FiniteCurveScreen: React.FC = () => {
 	return loading ? (
 		<Text> Loading </Text>
 	) : (
-		<CharacterItem character={data.character as Character} />
+		<CharacterList characters={data.characters.results as Character[]} />
 	);
 };
 
