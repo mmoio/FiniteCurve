@@ -5,9 +5,9 @@ import CenteredView from '../../components/CenteredView';
 import DarkenedBackground from '../../components/DarkenedBackground';
 import { CharacterProps } from '../types';
 
-const CharacterItem: React.FC<CharacterProps> = ({ character }) => {
+const CharacterItem: React.FC<CharacterProps & { onPress: () => void }> = ({ character, onPress }) => {
 	return (
-		<DarkenedBackground resizeMode='cover' source={{ uri: character.image }}>
+		<DarkenedBackground onPress={onPress} resizeMode='cover' source={{ uri: character.image }}>
 			<View style={{ marginBottom: 20 }}>
 				<BorderText fontSize={22}>{character.name}</BorderText>
 				<CenteredView>

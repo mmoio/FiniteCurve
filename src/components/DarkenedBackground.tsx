@@ -1,33 +1,35 @@
-import styled from 'styled-components/native';
 import React from 'react';
-import {ImageBackgroundProps} from 'react-native';
+import { ImageBackgroundProps, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import styled from 'styled-components/native';
 
-const LightBackground = styled.ImageBackground`
-  display: flex;
-  border-width: 2px;
-  opacity: 0.8;
-  align-items: center;
-  justify-content: flex-end;
-	width: 180px;
-	height: 200px;
-`
+export const LightBackground = styled.ImageBackground`
+	display: flex;
+	border-width: 2px;
+	opacity: 0.8;
+	align-items: center;
+	justify-content: flex-end;
+	width: ${({ width }) => width || '180px'};
+	height: ${({ height }) => height || '200px'};
+`;
 
-const DarkLayer = styled.View`
+export const DarkLayer = styled.View`
 	display: flex;
 	position: absolute;
 	background-color: black;
 	opacity: 0.4;
 	height: 101%;
 	width: 100%;
-`
+`;
 
-const DarkenedBackground: React.FC<ImageBackgroundProps> = (props) => {
+const DarkenedBackground: React.FC<ImageBackgroundProps & TouchableOpacityProps> = (props) => {
 	return (
-		<LightBackground {...props}>
-			<DarkLayer/>
-			{props.children}
-		</LightBackground>
+		<TouchableOpacity onPress={props.onPress}>
+			<LightBackground {...props}>
+				<DarkLayer />
+				{props.children}
+			</LightBackground>
+		</TouchableOpacity>
 	);
-}
+};
 
 export default DarkenedBackground;

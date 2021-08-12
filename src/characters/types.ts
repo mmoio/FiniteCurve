@@ -7,6 +7,7 @@ export declare type Character = {
 	species: string
 	status: CharacterStatus;
 	id: string;
+	location?: Location;
 }
 
 export declare type CharacterProps = {
@@ -15,4 +16,17 @@ export declare type CharacterProps = {
 
 export declare type CharacterListProps = {
 	characters: Character[];
+}
+
+export declare type ProfileProps = {
+	character: Character;
+}
+
+export declare type Location = {
+	id: string;
+	name: string;
+	type: string;
+	dimension: string;
+	residents: Character[];
+	created: string;
 }
