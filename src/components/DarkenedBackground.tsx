@@ -8,8 +8,8 @@ const LightBackground = styled.ImageBackground`
   opacity: 0.8;
   align-items: center;
   justify-content: flex-end;
-	height: 150px;
-	width: 150px;
+	width: 180px;
+	height: 200px;
 `
 
 const DarkLayer = styled.View`
