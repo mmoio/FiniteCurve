@@ -1,18 +1,18 @@
-import { useQuery, gql } from '@apollo/client';
-import React from 'react';
+import React, {useState} from 'react';
 import { Text } from 'react-native';
 import CharacterList from '../characters/CharacterList';
+import useCharacters from '../hooks/useCharacters';
 import { Character } from '../characters/types';
-import { query } from '../api/queries';
 
 const FiniteCurveScreen: React.FC = ({ navigation }) => {
-	const { data, loading } = useQuery(query.characters);
+	const { characters, loading, loadMore, hasNextPage } = useCharacters();
 	return loading ? (
 		<Text> Loading </Text>
 	) : (
 		<CharacterList
 			onPress={(id: string) => navigation.navigate('Profile', { characterId: id })}
-			characters={data.characters.results as Character[]}
+			characters={characters as Character[]}
+			onEndReached={ loadMore }
 		/>
 	);
 };

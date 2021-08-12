@@ -1,14 +1,17 @@
 import { gql, DocumentNode } from '@apollo/client';
 
-const characters = gql`
+const characters = (page: number): DocumentNode => gql`
 	query {
-		characters(page: 1) {
+		characters(page: ${page}) {
 			results {
 				name
 				species
 				status
 				image
 				id
+			},
+			info {
+				next
 			}
 		}
 	}

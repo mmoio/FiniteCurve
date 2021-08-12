@@ -16,6 +16,7 @@ export declare type CharacterProps = {
 
 export declare type CharacterListProps = {
 	characters: Character[];
+	onEndReached: () => void;
 }
 
 export declare type ProfileProps = {
