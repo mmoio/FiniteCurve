@@ -1,7 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 import React from 'react';
 import { Text } from 'react-native';
-import CharacterList from '../characters/components/CharacterList';
+import CharacterList from '../characters/CharacterList';
 import {Character } from '../characters/types';
 
 const CHAPTERS_QUERY = gql`

@@ -1,7 +1,7 @@
 import React from 'react';
-import { CharacterListProps, Character } from '../../types';
+import { CharacterListProps } from '../types';
 import CharacterItem from '../Character';
-import GridList from '../../../components/GridList';
+import GridList from '../../components/GridList';
 
 const CharacterList: React.FC<CharacterListProps> = (props) => {
 	return (
