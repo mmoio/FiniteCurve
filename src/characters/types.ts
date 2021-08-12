@@ -1,5 +1,5 @@
 
-export declare type CharacterStatus = 'Alive' | 'Dead' | 'Uknown';
+export declare type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
 
 export declare type Character = {
 	name: string;

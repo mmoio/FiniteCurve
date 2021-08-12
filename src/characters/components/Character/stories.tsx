@@ -13,4 +13,4 @@ const props: CharacterProps = {
 	},
 };
 
-storiesOf('CharacterItem', module).add('Default', () => ( <Character {...props} />));
+storiesOf('Character', module).add('Item', () => ( <Character {...props} />));
