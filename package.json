@@ -70,7 +70,7 @@
       "searchDir": [
         "./src"
       ],
-      "pattern": "**/*.stories.tsx",
+      "pattern": "**/stories.tsx",
       "outputFile": "./storybook/storyLoader.js"
     }
   }
