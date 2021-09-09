@@ -7,6 +7,7 @@ import FiniteCurveScreen from './views/FiniteCurveScreen';
 import StorybookScreen from './views/StorybookScreen';
 import ProfileScreen from './views/ProfileScreen';
 import {navigationRef} from './navigation/NavigationService';
+import {concatPagination} from '@apollo/client/utilities';
 
 // Initialize Apollo Client
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({

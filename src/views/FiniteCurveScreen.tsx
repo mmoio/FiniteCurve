@@ -5,7 +5,7 @@ import useCharacters from '../hooks/useCharacters';
 import { Character } from '../characters/types';
 
 const FiniteCurveScreen: React.FC = ({ navigation }) => {
-	const { characters, loading, loadMore, hasNextPage } = useCharacters();
+	const { characters, loading, loadMore } = useCharacters();
 	return loading ? (
 		<Text> Loading </Text>
 	) : (
