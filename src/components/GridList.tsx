@@ -6,13 +6,12 @@ export declare type GridListProps<T> = FlatListProps<T>;
 const GridList = function <T>(props: GridListProps<T>): any {
 	return (
 		<FlatList
-			{...props}
-			columnWrapperStyle={{justifyContent: 'space-evenly'}}
 			ItemSeparatorComponent={
-				() => <View style={{ padding: 5 }}/>
+				() => <View style={{ paddingVertical: 3 }}/>
 			}
-			style={{ marginVertical: 5 }}
+			columnWrapperStyle={{ justifyContent: 'space-around' }}
 			numColumns={2}
+			{...props}
 		/>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackgroundProps, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { ImageBackgroundProps, TouchableOpacity, TouchableOpacityProps, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 export const LightBackground = styled.ImageBackground`
@@ -8,8 +8,8 @@ export const LightBackground = styled.ImageBackground`
 	opacity: 0.8;
 	align-items: center;
 	justify-content: flex-end;
-	width: ${({ width }) => width || '180px'};
-	height: ${({ height }) => height || '200px'};
+	width: ${({ width }) => width || Dimensions.get('screen').width * 0.48 + 'px'};
+	height: ${({ height }) => height || Dimensions.get('screen').height * 0.3 + 'px'};
 `;
 
 export const DarkLayer = styled.View`

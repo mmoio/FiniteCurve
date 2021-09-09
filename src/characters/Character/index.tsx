@@ -8,7 +8,7 @@ import { CharacterProps } from '../types';
 const CharacterItem: React.FC<CharacterProps & { onPress: () => void }> = ({ character, onPress }) => {
 	return (
 		<DarkenedBackground onPress={onPress} resizeMode='cover' source={{ uri: character.image }}>
-			<View style={{ marginBottom: 20 }}>
+			<View style={{ marginBottom: 10 }}>
 				<BorderText fontSize={22}>{character.name}</BorderText>
 				<CenteredView>
 					<BorderText>{character.status + ' - ' + character.species}</BorderText>
