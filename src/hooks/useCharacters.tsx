@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 import { query } from '../api/queries';
+import { CharactersQuery, UpdateCharactersQuery } from '../characters/types';
 
 function useCharacters() {
 	const { data, loading, fetchMore } = useQuery(query.characters);
@@ -10,15 +11,16 @@ function useCharacters() {
 				variables: {
 					page: data.characters.info.next,
 				},
-				updateQuery: onUpdate
+				updateQuery: onUpdate,
 			});
 		}
 	};
 
-	const onUpdate = (prev, { fetchMoreResult }) => {
+	const onUpdate: UpdateCharactersQuery = (prev, { fetchMoreResult }): CharactersQuery => {
 		if (!fetchMoreResult) return prev;
-		fetchMoreResult.characters.results = [...prev.characters.results, ...fetchMoreResult.characters.results];
-		return fetchMoreResult;
+		const { info, results } = fetchMoreResult.characters;
+		const merged = [...prev.characters.results, ...results];
+		return { characters: { info, results: merged } };
 	};
 
 	return {

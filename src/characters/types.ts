@@ -32,3 +32,19 @@ export declare type Location = {
 	residents: Character[];
 	created: string;
 }
+
+export declare type Info = {
+	next: number,
+}
+
+export declare type CharactersQuery = {
+	characters: {
+		results: Character[],
+		info: Info
+	}
+}
+
+export declare type UpdateCharactersQuery = (prev: CharactersQuery, options: {
+	fetchMoreResult?: CharactersQuery;
+}) => CharactersQuery
+
