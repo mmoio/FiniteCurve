@@ -5,13 +5,14 @@ function useCharacters() {
 	const { data, loading, fetchMore } = useQuery(query.characters);
 
 	const loadMore = () => {
-		if (data.characters.info.next)
+		if (data.characters.info.next) {
 			return fetchMore({
 				variables: {
 					page: data.characters.info.next,
 				},
 				updateQuery: onUpdate
 			});
+		}
 	};
 
 	const onUpdate = (prev, { fetchMoreResult }) => {
@@ -20,9 +21,9 @@ function useCharacters() {
 		return fetchMoreResult;
 	};
 
-
 	return {
 		characters: data?.characters?.results || [],
+		hasMore: data?.characters?.info?.next != null,
 		loading,
 		loadMore,
 	};

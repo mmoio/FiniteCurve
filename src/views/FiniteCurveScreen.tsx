@@ -5,7 +5,7 @@ import useCharacters from '../hooks/useCharacters';
 import { Character } from '../characters/types';
 
 const FiniteCurveScreen: React.FC = ({ navigation }) => {
-	const { characters, loading, loadMore } = useCharacters();
+	const { characters, loading, loadMore, hasMore } = useCharacters();
 	return loading ? (
 		<Text> Loading </Text>
 	) : (
@@ -13,6 +13,7 @@ const FiniteCurveScreen: React.FC = ({ navigation }) => {
 			onPress={(id: string) => navigation.navigate('Profile', { characterId: id })}
 			characters={characters as Character[]}
 			onEndReached={ loadMore }
+			loading={ hasMore }
 		/>
 	);
 };

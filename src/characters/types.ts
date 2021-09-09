@@ -1,4 +1,3 @@
-
 export declare type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
 
 export declare type Character = {
@@ -17,6 +16,8 @@ export declare type CharacterProps = {
 export declare type CharacterListProps = {
 	characters: Character[];
 	onEndReached: () => void;
+	onPress: (id: string) => void;
+	loading: boolean;
 }
 
 export declare type ProfileProps = {
