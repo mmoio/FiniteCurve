@@ -1,4 +1,8 @@
-export declare type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
+export enum CharacterStatus {
+	ALIVE = 'Alive',
+	DEAD = 'Dead',
+	UNKOWN = 'unknown'
+}
 
 export declare type Character = {
 	name: string;
@@ -6,7 +10,13 @@ export declare type Character = {
 	species: string
 	status: CharacterStatus;
 	id: string;
-	location?: Location;
+	location: Location;
+	episode: Episode[];
+}
+
+export declare type Episode = {
+	name: string;
+	episode: string;
 }
 
 export declare type CharacterProps = {

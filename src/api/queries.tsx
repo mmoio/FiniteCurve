@@ -25,6 +25,10 @@ const character = (id: number): DocumentNode => gql`
 			status
 			image
 			id
+			episode {
+				name
+				episode
+			}
 			location {
 				name
 			}

@@ -1,22 +1,34 @@
 import React from 'react';
-import DarkenedBackground from '../../components/DarkenedBackground';
 import { ProfileProps } from '../types';
-import { Text } from 'react-native';
-import CenteredView from '../../components/CenteredView';
+import { Text, View } from 'react-native';
+import VerticalView from '../../components/VerticalView';
+import BorderText from '../../components/BorderText';
+import CharacterBackground from '../CharacterBackground';
 
 const Profile: React.FC<ProfileProps> = (props) => {
 	return (
 		<>
-			<DarkenedBackground width={'100%'} source={{ uri: props.character.image }} />
-			<CenteredView>
-				<Text> { props.character.name } </Text>
-			</CenteredView>
-			<CenteredView>
-				<Text> { props.character.status + ' - ' + props.character.species } </Text>
-			</CenteredView>
-			<CenteredView>
-				<Text> { props.character.location.name } </Text>
-			</CenteredView>
+			<CharacterBackground
+				style={{ width: '100%', alignItems: 'flex-start', justifyContent: 'flex-start' }}
+				source={{ uri: props.character.image }}
+				status={props.character.status}
+			>
+				<View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between' }}>
+					<BorderText fontSize={60}>{props.character.name}</BorderText>
+					<BorderText fontSize={14}>{props.character.status}</BorderText>
+				</View>
+			</CharacterBackground>
+			<View style={{ marginVertical: 5 }} />
+			<VerticalView>
+				<Text>
+					First appeared in episode: {props.character.episode[0].episode + ' ' + props.character.episode[0].name}
+				</Text>
+				<View style={{ marginVertical: '1%' }} />
+				<Text>{props.character.species + ' race'}</Text>
+				<View style={{ marginVertical: '1%' }} />
+				<Text>Last known location: </Text>
+				<Text>{props.character.location.name}</Text>
+			</VerticalView>
 		</>
 	);
 };
